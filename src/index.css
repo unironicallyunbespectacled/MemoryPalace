@@ -1,13 +1,17 @@
 @import "tailwindcss";
 
 :root {
+  --chromatic-red: rgba(255, 0, 0, 0.12);
+  --chromatic-green: rgba(0, 255, 0, 0.12);
+  --chromatic-blue: rgba(0, 0, 255, 0.12);
+  
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #09090b; /* Zinc 950 */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,10 +19,40 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@layer components {
+  .chromatic-glass {
+    @apply relative overflow-hidden border border-white/20 bg-white/10 backdrop-blur-[40px] rounded-2xl;
+  }
+
+  .chromatic-glass::before {
+    content: "";
+    @apply absolute inset-0 pointer-events-none;
+    background: linear-gradient(
+      90deg,
+      var(--chromatic-red) 0%,
+      var(--chromatic-red) 48%,
+      var(--chromatic-green) 48%,
+      var(--chromatic-green) 52%,
+      var(--chromatic-blue) 52%,
+      var(--chromatic-blue) 100%
+    );
+    mix-blend-mode: screen;
+    opacity: 0.1;
+  }
+
+  .chromatic-glass-border {
+    @apply border border-white/10;
+    box-shadow: 
+      -1px 0 0 var(--chromatic-red),
+      0 0 0 var(--chromatic-green),
+      1px 0 0 var(--chromatic-blue);
+  }
+}
+
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  display: block;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #09090b;
 }
