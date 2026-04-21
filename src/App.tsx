@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { usePalaceStore } from './store/usePalaceStore';
 import Sidebar from './components/Sidebar';
 import PalaceCard from './components/PalaceCard';
+import Generator from './components/Generator';
+import Settings from './components/Settings';
 import { LayoutDashboard, Compass, BookOpen, Settings as SettingsIcon, BrainCircuit, Plus } from 'lucide-react';
 
 function App() {
@@ -84,15 +86,13 @@ function App() {
             </div>
           )}
 
-          {activeTab === 'generator' && (
-            <div className="flex h-96 items-center justify-center">
-              <p className="text-zinc-500">Generator Component coming soon...</p>
-            </div>
-          )}
+          {activeTab === 'generator' && <Generator />}
           
-          {activeTab === 'settings' && (
+          {activeTab === 'settings' && <Settings />}
+
+          {activeTab === 'walk' && (
             <div className="flex h-96 items-center justify-center">
-              <p className="text-zinc-500">Settings Component coming soon...</p>
+              <p className="text-zinc-500">Walkthrough Component coming soon...</p>
             </div>
           )}
         </div>
