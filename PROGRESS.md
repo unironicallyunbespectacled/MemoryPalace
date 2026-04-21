@@ -3,14 +3,14 @@
 ## Vision
 A spatial memory builder utilizing the method of loci. Generates narrative spatial journeys through vividly described locations where concepts are anchored to specific physical spots. Designed specifically for Minerva HC workflows.
 
-## Phase 1: MVP Requirements (Updated Plan)
-- [ ] **Infrastructure Setup**: React TS + Vite + Tauri + TailwindCSS.
-- [ ] **Core Data Models**: Define interfaces and LocalStorage sync.
-- [ ] **LLM Service**: Gemini-powered generation with API key management.
-- [ ] **Chromatic Glass UI**: Implement custom CSS/Canvas 'Chromatic Glass' aesthetics.
-- [ ] **Palace Viewer**: SVG-based map rendering and navigation.
-- [ ] **Walk & Quiz Mode**: Step-by-step walkthroughs and multiple-choice recall.
-- [ ] **Persistence & Decay**: LocalStorage storage and visual decay based on review frequency.
+## Phase 1: MVP Requirements (Completed)
+- [x] **Infrastructure Setup**: React TS + Vite + Tauri + TailwindCSS.
+- [x] **Core Data Models**: Defined interfaces and LocalStorage sync via Zustand.
+- [x] **LLM Service**: Gemini-powered generation with API key management and Mock mode.
+- [x] **Chromatic Glass UI**: Implemented custom CSS 'Chromatic Glass' aesthetics with backdrop blur and RGB fringing.
+- [x] **Palace Viewer**: SVG-based map rendering and sequential navigation walkthrough.
+- [x] **Walk & Quiz Mode**: Step-by-step walkthroughs and reverse retrieval multiple-choice recall.
+- [x] **Persistence & Decay**: LocalStorage storage and visual decay logic based on review frequency.
 
 ---
 
@@ -20,4 +20,8 @@ A spatial memory builder utilizing the method of loci. Generates narrative spati
 - Initialized `PROGRESS.md`.
 - Set up foundational React + TypeScript structure using Vite.
 - **Plan Updated**: Implementing a cross-platform foundation via Tauri (Web + Desktop) and using Gemini for the LLM engine.
-- **Currently**: Setting up Tauri, TailwindCSS, and Lucide React.
+- **Infrastructure Finalized**: Integrated Tauri, Tailwind 4, and Zustand.
+- **Core Logic Finalized**: Implemented Gemini API service, mock generator, and decay calculation.
+- **UI Finalized**: Built Sidebar, Palace Cards, Generator, Settings, Palace Viewer, and Quiz Engine with 'Chromatic Glass' styling.
+- **Git Sync**: All changes pushed to GitHub repository.
+- **Phase 1 MVP is now fully functional and deployed to master.**

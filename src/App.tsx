@@ -4,11 +4,15 @@ import Sidebar from './components/Sidebar';
 import PalaceCard from './components/PalaceCard';
 import Generator from './components/Generator';
 import Settings from './components/Settings';
+import PalaceViewer from './components/PalaceViewer';
 import { LayoutDashboard, Compass, BookOpen, Settings as SettingsIcon, BrainCircuit, Plus } from 'lucide-react';
+import { Palace } from './types';
 
 function App() {
   const [activeTab, setActiveTab] = useState('palaces');
-  const { palaces } = usePalaceStore();
+  const [selectedPalace, setSelectedPalace] = useState<Palace | null>(null);
+  const { getDecayedPalaces } = usePalaceStore();
+  const palaces = getDecayedPalaces();
 
   const mobileTabs = [
     { id: 'palaces', icon: LayoutDashboard },
@@ -78,12 +82,19 @@ function App() {
                     <PalaceCard 
                       key={palace.id} 
                       palace={palace} 
-                      onClick={(id) => console.log('Click Palace:', id)} 
+                      onClick={() => setSelectedPalace(palace)} 
                     />
                   ))}
                 </div>
               )}
             </div>
+          )}
+
+          {selectedPalace && (
+            <PalaceViewer 
+              palace={selectedPalace} 
+              onExit={() => setSelectedPalace(null)} 
+            />
           )}
 
           {activeTab === 'generator' && <Generator />}
